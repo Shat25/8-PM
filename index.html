@@ -1,0 +1,360 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>A Little Love Note</title>
+
+<script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.9.3/dist/confetti.browser.min.js"></script>
+
+<style>
+
+*{
+    box-sizing:border-box;
+    margin:0;
+    padding:0;
+}
+
+body{
+    min-height:100vh;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+
+    background:#fff8f7;
+    font-family:Georgia,serif;
+
+    overflow:hidden;
+}
+
+
+/* ================================
+   MAIN 1:1 CARD
+================================ */
+
+.card{
+    width:min(92vw,500px);
+    aspect-ratio:1 / 1;
+
+    padding:12px;
+
+    background:#fffdfc;
+
+    border:1px solid #dca4b0;
+    border-radius:24px;
+
+    box-shadow:0 15px 40px rgba(130,60,80,.12);
+
+    position:relative;
+}
+
+
+/* ================================
+   INNER BORDER
+================================ */
+
+.card-inner{
+    width:100%;
+    height:100%;
+
+    border:1px dashed #e3b5be;
+    border-radius:17px;
+
+    display:flex;
+    flex-direction:column;
+
+    align-items:center;
+    justify-content:center;
+
+    text-align:center;
+
+    padding:30px 25px;
+
+    position:relative;
+}
+
+
+/* ================================
+   CORNER DETAILS
+================================ */
+
+.corner{
+    position:absolute;
+    font-size:18px;
+    color:#d8a0ad;
+}
+
+.corner.one{
+    top:20px;
+    left:20px;
+}
+
+.corner.two{
+    top:20px;
+    right:20px;
+}
+
+.corner.three{
+    bottom:20px;
+    left:20px;
+}
+
+.corner.four{
+    bottom:20px;
+    right:20px;
+}
+
+
+/* ================================
+   SMALL TITLE
+================================ */
+
+.small-title{
+    font-family:Arial,sans-serif;
+
+    font-size:12px;
+    letter-spacing:3px;
+
+    text-transform:uppercase;
+
+    color:#9e6975;
+
+    margin-bottom:15px;
+}
+
+
+/* ================================
+   MAIN HEADING
+================================ */
+
+h1{
+    font-family:Georgia,serif;
+
+    font-style:italic;
+    font-weight:normal;
+
+    font-size:clamp(30px,8vw,44px);
+
+    line-height:1.2;
+
+    color:#ad5269;
+
+    margin-bottom:18px;
+
+    white-space:nowrap;
+}
+
+
+/* ================================
+   MESSAGE
+================================ */
+
+.message{
+    max-width:390px;
+
+    font-size:clamp(16px,4.2vw,19px);
+
+    line-height:1.65;
+
+    color:#514044;
+}
+
+
+/* Paragraph spacing */
+
+.message p{
+    margin:0 0 12px 0;
+}
+
+.message p:last-child{
+    margin-bottom:0;
+}
+
+.message strong{
+    color:#ad5269;
+    font-weight:normal;
+}
+
+
+/* ================================
+   DIVIDER
+================================ */
+
+.divider{
+    width:75px;
+    height:1px;
+
+    background:#d9a4b0;
+
+    margin:17px auto;
+}
+
+
+/* ================================
+   CLOSING
+================================ */
+
+.closing{
+    font-family:Georgia,serif;
+
+    font-style:italic;
+
+    font-size:17px;
+
+    color:#95596a;
+}
+
+
+/* ================================
+   MOBILE
+================================ */
+
+@media(max-width:400px){
+
+    .card{
+        width:93vw;
+    }
+
+    .card-inner{
+        padding:22px 16px;
+    }
+
+    h1{
+        font-size:27px;
+        margin-bottom:16px;
+    }
+
+    .small-title{
+        font-size:10px;
+        letter-spacing:2px;
+        margin-bottom:13px;
+    }
+
+    .message{
+        font-size:14px;
+        line-height:1.65;
+    }
+
+    .message p{
+        margin-bottom:10px;
+    }
+
+    .divider{
+        margin:15px auto;
+    }
+
+    .closing{
+        font-size:15px;
+    }
+
+}
+
+</style>
+</head>
+
+
+<body>
+
+<div class="card">
+
+    <div class="card-inner">
+
+        <!-- Decorative corners -->
+
+        <div class="corner one">·</div>
+        <div class="corner two">♡</div>
+        <div class="corner three">♡</div>
+        <div class="corner four">·</div>
+
+
+        <!-- Small title -->
+
+        <div class="small-title">
+            A little secret
+        </div>
+
+
+        <!-- Main heading -->
+
+        <h1>
+            Between You &amp; Me
+        </h1>
+
+
+        <!-- Message -->
+
+        <div class="message">
+
+            <p>
+                If I had to choose one person
+                to keep beside me through
+                all the little moments of life...
+            </p>
+
+            <p>
+                I'd choose you.
+            </p>
+
+            <p>
+                <strong>
+                    Not just for the beautiful days,
+                    but for all the ordinary ones too.
+                </strong>
+            </p>
+
+        </div>
+
+
+        <!-- Divider -->
+
+        <div class="divider"></div>
+
+
+        <!-- Closing -->
+
+        <div class="closing">
+            Because life feels better with you in it. ♡
+        </div>
+
+
+    </div>
+
+</div>
+
+
+<script>
+
+/* Gentle confetti */
+
+window.addEventListener("load",function(){
+
+    setTimeout(function(){
+
+        confetti({
+
+            particleCount:50,
+
+            spread:60,
+
+            startVelocity:18,
+
+            gravity:.8,
+
+            scalar:.7,
+
+            origin:{
+                x:.5,
+                y:.35
+            }
+
+        });
+
+    },600);
+
+});
+
+</script>
+
+</body>
+</html>
